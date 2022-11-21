@@ -9,19 +9,17 @@ using Ejercicio4;
 public class Test1:BaseTest 
     {
 
-    HomePage hp = new HomePage(DriverInstanceManager.Driver);
-    SeleniumCPage sp = new SeleniumCPage(DriverInstanceManager.Driver);
+    HomePage hp = new HomePage();
+    SeleniumCPage sp = new SeleniumCPage();
 
     [Test]
         public void ValidateLink()
         {
         hp.clickSeleniumCLink();
-        sp.CheckUrl("selenium");
-        sp.CheckSignIn();
-        sp.CheckHeader();
-        sp.CheckVideo();
-        }
-
-     
+        Assert.True(sp.CheckUrl("selenium"));
+        Assert.True(sp.CheckSignIn());
+        Assert.True(sp.CheckHeader());
+        Assert.True(sp.CheckVideo());
+        } 
     }
 

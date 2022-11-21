@@ -6,22 +6,22 @@ using NUnit.Framework;
 using Ejercicio4.Tests;
 using Ejercicio4;
 
-public class Test1B:BaseTest 
-    {
+public class Test1B : BaseTest
+{
 
-    HomePage hp = new HomePage(DriverInstanceManager.Driver);
-    SeleniumCPage sp = new SeleniumCPage(DriverInstanceManager.Driver);
+    HomePage hp = new HomePage();
+    SeleniumCPage sp = new SeleniumCPage();
 
     [Test]
-        public void ValidateLinkFail()
-        {
+    public void ValidateLinkFail()
+    {
         hp.clickSeleniumCLink();
-        sp.CheckUrl("selenium");
-        sp.CheckSignIn();
-        sp.CheckHeader();
-        sp.CheckVideoF();
-        }
-
-     
+        Assert.True(sp.CheckUrl("selenium"));
+        Assert.True(sp.CheckSignIn());
+        Assert.True(sp.CheckHeader());
+        Assert.False(sp.CheckVideo());
     }
+
+
+}
 

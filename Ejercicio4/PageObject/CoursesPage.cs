@@ -10,19 +10,11 @@ using Xunit;
 
 namespace Ejercicio4.PageObject
 {
-    
-    public class CoursesPage : BaseTest //Herencia para usar la misma instancia
+
+    public class CoursesPage : BasePage //Herencia para usar la misma instancia
                                         // del driver inicializada en base test
     {
-
-        private IWebDriver driver;
         private Boolean flag;
-
-        public CoursesPage(IWebDriver driver)
-        {
-            this.driver = driver;
-        }
-
         IWebElement searchBar => driver.FindElement(By.CssSelector("input[name=q]"));
 
         public void searchCoursesBar(string search)
@@ -30,7 +22,7 @@ namespace Ejercicio4.PageObject
             searchBar.SendKeys(search + Keys.Enter);
         }
 
-        public void CheckCoursesSearch(string search)
+        public bool CourseIsPresent(string search)
         {
             IList<IWebElement> lista = driver.FindElements(By.CssSelector("div.course-card__body"));
 
@@ -44,11 +36,12 @@ namespace Ejercicio4.PageObject
                     flag = true;
                     break;
                 }
-                
+
             }
-            Assert.True(flag); //assert fuera del for
+            //assert fuera de page object
+            return flag;
         }
     }
 
-    
+
 }

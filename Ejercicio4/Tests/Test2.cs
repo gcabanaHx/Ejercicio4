@@ -6,25 +6,18 @@ using NUnit.Framework;
 using Ejercicio4.Tests;
 using Ejercicio4;
 
-public class Test2: BaseTest  //Herencia    para usar la instancia del
-                              //driver inicializada en la clase base test
-                              
+public class Test2 : BaseTest  //Herencia    para usar la instancia del
+                               //driver inicializada en la clase base test
 
 {
-
-
-    HomePage hp = new HomePage(DriverInstanceManager.Driver);
-    CoursesPage cp = new CoursesPage(DriverInstanceManager.Driver);
-
-
+    HomePage hp = new HomePage();
+    CoursesPage cp = new CoursesPage();
     [Test]
-        public void ValidateCourses()
-        {
+    public void ValidateCourses()
+    {
         hp.clickCoursesLink();
         cp.searchCoursesBar("C#");
-        cp.CheckCoursesSearch("C#");
-        }
-
-     
+        Assert.True(cp.CourseIsPresent("C#"));
     }
+}
 

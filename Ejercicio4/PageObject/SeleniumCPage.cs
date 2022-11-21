@@ -11,43 +11,56 @@ namespace Ejercicio4.PageObject
 {
 
  
-    public  class SeleniumCPage: BaseTest //Herencia para usar la misma instancia
+    public  class SeleniumCPage: BasePage //Herencia para usar la misma instancia
                                          // del driver inicializada en base test
     {
-        private IWebDriver driver;
-
-        public SeleniumCPage(IWebDriver driver)
-        {
-            this.driver = driver;
-        }
-
-
         IWebElement signIn => driver.FindElement(By.CssSelector("a[href*='/users/sign_in']"));
         IWebElement headerWrapper => driver.FindElement(By.CssSelector("div.header__wrapper"));
         IWebElement video => driver.FindElement(By.CssSelector("div.section__video__wrapper"));
 
-        public void CheckUrl(string url)
+      
+        public bool CheckUrl(string url)
         {
-            Assert.Contains(url, driver.Url);
+            bool flag = false;
+            if (driver.Url.Contains(url))
+            {
+                flag = true;
+            }
+            return flag;
+            //Assert.Contains(url, driver.Url);
         }
-        public void CheckSignIn()
+        public bool CheckSignIn()
         {
-            Assert.True(signIn.Displayed, "SignIn Not Displayed");
+            bool flag = false;
+            if (signIn.Displayed)
+            {
+                flag = true;
+            }
+            return flag;
+            //Assert.True(signIn.Displayed, "SignIn Not Displayed");
         }
 
-        public void CheckHeader()
+        public bool CheckHeader()
         {
-            Assert.True(headerWrapper.Displayed, "Header Not Displayed");
+            bool flag = false;
+            if (headerWrapper.Displayed)
+            {
+                flag = true;
+            }
+            return flag;
+            //Assert.True(headerWrapper.Displayed, "Header Not Displayed");
         }
 
-        public void CheckVideo()
+        public bool CheckVideo()
         {
-            Assert.True(video.Displayed, "Video Not Displayed");
+            bool flag = false;
+            if (video.Displayed)
+            {
+                flag = true;
+            }
+            return flag;
+            //Assert.True(video.Displayed, "Video Not Displayed");
         }
 
-        public void CheckVideoF()
-        {
-            Assert.False(video.Displayed, "Video Not Displayed");
-        }
     }
 }

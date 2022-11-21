@@ -9,20 +9,11 @@ using System.Threading.Tasks;
 
 namespace Ejercicio4.PageObject
 {
-    
-    public class HomePage :BaseTest //Herencia para usar la misma instancia
+
+    public class HomePage : BasePage//Herencia para usar la misma instancia
                                     // del driver inicializada en base test
     {
-
-        private IWebDriver driver;
-     
-
-        public HomePage(IWebDriver driver)
-        {
-            this.driver = driver;
-        }
         private IWebElement seleniumC => driver.FindElement(By.CssSelector("a[href*='selenium-with-c']"));
-
         public void clickSeleniumCLink()
         {
             seleniumC.Click();
@@ -33,6 +24,4 @@ namespace Ejercicio4.PageObject
             courses.Click();
         }
     }
-
-    
 }
