@@ -8,7 +8,7 @@ using Ejercicio4;
 
 public class Test1:BaseTest 
     {
-
+   
     HomePage hp = new HomePage();
     SeleniumCPage sp = new SeleniumCPage();
 
@@ -20,6 +20,8 @@ public class Test1:BaseTest
         Assert.True(sp.CheckSignIn());
         Assert.True(sp.CheckHeader());
         Assert.True(sp.CheckVideo());
-        } 
+        }
+
+ 
     }
 

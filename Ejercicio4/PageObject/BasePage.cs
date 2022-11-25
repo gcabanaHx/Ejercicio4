@@ -9,14 +9,22 @@ using System.Threading.Tasks;
 
 namespace Ejercicio4.PageObject
 {
-    
     public class BasePage 
-    { 
-        protected IWebDriver driver
+    {
+        protected By locator;
+
+        public BasePage(By by)
+        {
+            this.locator = by;
+        }
+        protected IWebDriver Driver
         {
             get { return DriverInstanceManager.Driver; }
         }
-    }
-
-    
+        
+        protected IWebElement Element
+        {
+            get { return this.Driver.FindElement(locator); }
+        }
+    } 
 }

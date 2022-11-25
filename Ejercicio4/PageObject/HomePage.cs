@@ -13,12 +13,16 @@ namespace Ejercicio4.PageObject
     public class HomePage : BasePage//Herencia para usar la misma instancia
                                     // del driver inicializada en base test
     {
-        private IWebElement seleniumC => driver.FindElement(By.CssSelector("a[href*='selenium-with-c']"));
+        public HomePage() :base(By.CssSelector(".page-parent"))
+        {
+            
+        }
+        private IWebElement seleniumC => Driver.FindElement(By.CssSelector("a[href*='selenium-with-c']"));
         public void clickSeleniumCLink()
         {
             seleniumC.Click();
         }
-        private IWebElement courses => driver.FindElement(By.CssSelector("a[href^=\"https://courses\"]"));
+        private IWebElement courses => Driver.FindElement(By.CssSelector("a[href^=\"https://courses\"]"));
         public void clickCoursesLink()
         {
             courses.Click();

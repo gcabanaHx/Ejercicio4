@@ -15,7 +15,12 @@ namespace Ejercicio4.PageObject
                                         // del driver inicializada en base test
     {
         private Boolean flag;
-        IWebElement searchBar => driver.FindElement(By.CssSelector("input[name=q]"));
+
+        public CoursesPage() : base(By.CssSelector(".page-parent"))
+        {
+        }
+
+        IWebElement searchBar => Driver.FindElement(By.CssSelector("input[name=q]"));
 
         public void searchCoursesBar(string search)
         {
@@ -24,7 +29,7 @@ namespace Ejercicio4.PageObject
 
         public bool CourseIsPresent(string search)
         {
-            IList<IWebElement> lista = driver.FindElements(By.CssSelector("div.course-card__body"));
+            IList<IWebElement> lista = Driver.FindElements(By.CssSelector("div.course-card__body"));
 
 
             foreach (IWebElement links in lista) //recorrer cada tarjeta y verificar titulo
