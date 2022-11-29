@@ -22,7 +22,7 @@ namespace Ejercicio4.PageObject
             get { return DriverInstanceManager.Driver; }
         }
         
-        protected IWebElement Element
+        protected IWebElement Container
         {
             get { return this.Driver.FindElement(locator); }
         }

@@ -17,12 +17,12 @@ namespace Ejercicio4.PageObject
         {
             
         }
-        private IWebElement seleniumC => Driver.FindElement(By.CssSelector("a[href*='selenium-with-c']"));
+        private IWebElement seleniumC => Container.FindElement(By.CssSelector("a[href*='selenium-with-c']"));
         public void clickSeleniumCLink()
         {
             seleniumC.Click();
         }
-        private IWebElement courses => Driver.FindElement(By.CssSelector("a[href^=\"https://courses\"]"));
+        private IWebElement courses => Container.FindElement(By.CssSelector("a[href^=\"https://courses\"]"));
         public void clickCoursesLink()
         {
             courses.Click();

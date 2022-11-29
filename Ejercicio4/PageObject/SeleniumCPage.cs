@@ -14,13 +14,13 @@ namespace Ejercicio4.PageObject
     public  class SeleniumCPage: BasePage //Herencia para usar la misma instancia
                                          // del driver inicializada en base test
     {
-        public SeleniumCPage() : base(By.CssSelector(".page-parent"))
+        public SeleniumCPage() : base(By.CssSelector(".course-landing-page "))
         {
         }
 
-        IWebElement signIn => Driver.FindElement(By.CssSelector("a[href*='/users/sign_in']"));
-        IWebElement headerWrapper => Driver.FindElement(By.CssSelector("div.header__wrapper"));
-        IWebElement video => Driver.FindElement(By.CssSelector("div.section__video__wrapper"));
+        IWebElement signIn => Container.FindElement(By.CssSelector("a[href*='/users/sign_in']"));
+        IWebElement headerWrapper => Container.FindElement(By.CssSelector("div.header__wrapper"));
+        IWebElement video => Container.FindElement(By.CssSelector("div.section__video__wrapper"));
 
       
         public bool CheckUrl(string url)

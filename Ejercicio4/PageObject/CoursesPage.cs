@@ -16,11 +16,11 @@ namespace Ejercicio4.PageObject
     {
         private Boolean flag;
 
-        public CoursesPage() : base(By.CssSelector(".page-parent"))
+        public CoursesPage() : base(By.CssSelector(".collections-landing-page "))
         {
         }
 
-        IWebElement searchBar => Driver.FindElement(By.CssSelector("input[name=q]"));
+        IWebElement searchBar => Container.FindElement(By.CssSelector("input[name=q]"));
 
         public void searchCoursesBar(string search)
         {
@@ -29,7 +29,7 @@ namespace Ejercicio4.PageObject
 
         public bool CourseIsPresent(string search)
         {
-            IList<IWebElement> lista = Driver.FindElements(By.CssSelector("div.course-card__body"));
+            IList<IWebElement> lista = Container.FindElements(By.CssSelector("div.course-card__body"));
 
 
             foreach (IWebElement links in lista) //recorrer cada tarjeta y verificar titulo
